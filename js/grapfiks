@@ -1,0 +1,256 @@
+new Chart(document.getElementById('moldChart'), {
+    type: 'line',
+    data: {
+        labels: ['4 день', '8 день', '12 день'],
+        datasets: [
+            { label: '1А', data: [4, 5, 5], borderColor: '#002060', backgroundColor: '#002060', pointRadius: 5, pointHoverRadius: 7, borderWidth: 2, tension: 0.25 },
+            { label: '1Б', data: [5, 8, 9], borderColor: '#3D5C9E', backgroundColor: '#3D5C9E', pointRadius: 5, pointHoverRadius: 7, borderWidth: 2, tension: 0.25 },
+            { label: '1В', data: [7, 12, 14], borderColor: '#B4C7E7', backgroundColor: '#B4C7E7', pointRadius: 5, pointHoverRadius: 7, borderWidth: 2, tension: 0.25 }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 1400, easing: 'easeOutQuart' },
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: '#E1E9F5',
+                titleColor: '#002060',
+                bodyColor: '#002060',
+                borderColor: '#B4C7E7',
+                borderWidth: 1,
+                padding: 10,
+                callbacks: { label: (ctx) => ctx.dataset.label + ': ' + ctx.parsed.y + '%' }
+            }
+        },
+        scales: {
+            y: { min: 0, max: 16, ticks: { color: '#002060', stepSize: 2 }, grid: { color: '#E1E9F5' } },
+            x: { ticks: { color: '#002060' }, grid: { display: false } }
+        }
+    }
+});
+
+// ===== Второй блок графиков =====
+// ===============================
+// Итоговые графики эксперимента
+// ===============================
+
+
+// Общие настройки
+const products = [
+    'Чеснок',
+    'Лук',
+    'Хрен',
+    'Клюква',
+    'Ель',
+    'Горчица',
+    'Алоэ',
+    'Лавандовое масло',
+    'Лавровый лист',
+    'Мята'
+];
+
+
+// -------------------------------
+// График 4 день
+// -------------------------------
+
+const firstDayCanvas = document.getElementById('firstDayChart');
+
+if (firstDayCanvas) {
+
+    new Chart(firstDayCanvas, {
+
+        type: 'bar',
+
+        data: {
+
+            labels: products,
+
+            datasets: [
+                {
+                    label: 'Поражение на 4 день',
+
+                    // плесени ещё нет
+                    data: [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+
+                    backgroundColor: '#B4C7E7',
+
+                    borderWidth: 0
+                }
+            ]
+        },
+
+
+        options: {
+
+            indexAxis: 'y',
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+
+            plugins: {
+
+                legend: {
+
+                    display: true,
+
+                    labels: {
+
+                        color: '#002060',
+
+                        font: {
+
+                            family: 'Montserrat'
+
+                        }
+                    }
+                }
+
+            },
+
+
+            scales: {
+
+                x: {
+
+                    min: 0,
+
+                    max: 5,
+
+                    ticks: {
+
+                        stepSize: 1,
+
+                        color: '#002060'
+
+                    },
+
+                    grid: {
+
+                        color: '#E1E9F5'
+
+                    }
+
+                },
+
+
+                y: {
+
+                    ticks: {
+
+                        color: '#002060',
+
+                        font: {
+
+                            family: 'Montserrat'
+
+                        }
+
+                    },
+
+                    grid: {
+
+                        display: false
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+// ------------------------------
+// График 12 день
+// -------------------------------
+
+
+const lastDayCanvas = document.getElementById('lastDayChart');
+
+if (lastDayCanvas) {
+    new Chart(lastDayCanvas, {
+        type: 'bar',
+        data: {
+            labels: products,
+            datasets: [
+                {
+                    label: 'Поражение на 12 день',
+                    // шкала 1-5
+                    data: [
+                        1, // чеснок
+                        2, // лук
+                        2, // хрен
+                        3, // клюква
+                        4, // ель
+                        5, // горчица
+                        3, // алоэ
+                        4, // лавандовое масло
+                        2, // лавровый лист
+                        3  // мята
+                    ],
+                    backgroundColor: '#3D5C9E',
+                    borderWidth: 0
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: '#002060',
+                        font: {
+                            family: 'Montserrat'
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    min: 0,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        color: '#002060'
+                    },
+                    grid: {
+                        color: '#E1E9F5'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#002060',
+                        font: {
+                            family: 'Montserrat'
+                        }
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+}

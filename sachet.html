@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Изготовление саше</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="header-lincs">
+                <li class="header-linc"><a href="index.html">Главная</a></li>
+                <li class="header-linc"><a href="mainPart.html">Основная часть</a></li>
+                <li class="header-linc"><a href="noteboock.html">Дневник наблюдений</a></li>
+                <li class="header-linc"><a href="#">Изготовление саше</a></li>
+                <li class="header-linc"><a href="aboutUs.html">Об авторе</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="sachet">
+        <h1 class="titleH1">Саше</h1>
+        <div class="center">
+            <svg width="440" height="355" viewBox="0 0 340 255" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <clipPath id="topTri">
+                        <polygon points="120,52 220,52 170,140" />
+                    </clipPath>
+                    <clipPath id="bottomTri">
+                        <polygon points="120,228 220,228 170,140" />
+                    </clipPath>
+                </defs>
+
+                <g>
+                    <animateTransform attributeName="transform" type="rotate"
+                        values="0 170 140;0 170 140;180 170 140;180 170 140;360 170 140" keyTimes="0;0.444;0.5;0.944;1"
+                        dur="9s" repeatCount="indefinite" />
+
+                    <rect x="110" y="45" width="120" height="7" rx="2" fill="#002060" />
+                    <rect x="110" y="228" width="120" height="7" rx="2" fill="#002060" />
+                    <path d="M120,52 L220,52 L170,140 L120,228 L220,228 L170,140 Z" fill="none" stroke="#002060"
+                        stroke-width="2" />
+
+                    <rect x="120" y="52" width="100" height="88" clip-path="url(#topTri)" fill="#B4C7E7">
+                        <animate attributeName="y" values="52;140;140;52;52;52" keyTimes="0;0.444;0.5;0.5005;0.944;1"
+                            dur="9s" repeatCount="indefinite" />
+                        <animate attributeName="height" values="88;0;0;88;88" keyTimes="0;0.444;0.5;0.944;1" dur="9s"
+                            repeatCount="indefinite" />
+                    </rect>
+
+                    <rect x="120" y="228" width="100" height="0" clip-path="url(#bottomTri)" fill="#B4C7E7">
+                        <animate attributeName="y" values="228;140;140" keyTimes="0;0.444;1" dur="9s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="height" values="0;88;88;0;0" keyTimes="0;0.444;0.5;0.944;1" dur="9s"
+                            repeatCount="indefinite" />
+                    </rect>
+
+                    <rect x="167" y="135" width="6" height="10" fill="#B4C7E7">
+                        <animate attributeName="opacity" values="1;1;0;0;1;1;0;0"
+                            keyTimes="0;0.444;0.445;0.5;0.501;0.944;0.945;1" dur="9s" repeatCount="indefinite" />
+                    </rect>
+                </g>
+            </svg>
+
+            <p class="titleH3">Данный раздел находится в разработке</p>
+        </div>
+    </section>
+</body>
+
+</html>
